@@ -28,6 +28,7 @@ public class ResourceBeanController {
 	private final Logger logger = Logger.getLogger(ResourceBeanController.class);
 	@Autowired
 	private ResourceBeanService resourceService;
+	
 	/**
 	 * This method used insert the resource into Database
 	 */
