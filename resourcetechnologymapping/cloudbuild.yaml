@@ -1,6 +1,7 @@
 steps:
-- name: 'gcr.io/cloud-builders/mvn'
-  args: ['install']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
-images: ['gcr.io/$PROJECT_ID/resourcetechnologymapping']
+  args: [ 'build', '-t', 'us.gcr.io/$PROJECT_ID/foobar:$COMMIT_SHA', '-t', 'us.gcr.io/$PROJECT_ID/foobar:latest', '.' ]
+images:
+- 'us.gcr.io/$PROJECT_ID/foobar:$COMMIT_SHA'
+- 'us.gcr.io/$PROJECT_ID/foobar:latest'
+timeout: 3600s
