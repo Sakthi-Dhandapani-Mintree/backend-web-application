@@ -17,7 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.resoursetechmapping.bean.ResourceBean;
 import com.resoursetechmapping.service.ResourceBeanService;
-
+/**
+ * Its controller for ResourceMapping
+ * @author M1048135
+ *
+ */
 @CrossOrigin
 @RestController
 public class ResourceBeanController {
