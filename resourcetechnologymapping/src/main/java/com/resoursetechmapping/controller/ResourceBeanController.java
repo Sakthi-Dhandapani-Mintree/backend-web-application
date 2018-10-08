@@ -28,7 +28,9 @@ public class ResourceBeanController {
 	private final Logger logger = Logger.getLogger(ResourceBeanController.class);
 	@Autowired
 	private ResourceBeanService resourceService;
-	
+	/**
+	 * This method used insert the resource into Database
+	 */
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	public String hello(@RequestBody String resource) {
 		System.out.println("Hello My method is called");
