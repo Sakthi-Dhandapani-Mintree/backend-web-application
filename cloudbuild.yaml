@@ -14,10 +14,10 @@ steps:
 # run examples
 - name: 'gcr.io/$PROJECT_ID/mvn:3.3.9-jdk-8'
   args: ['install']
-  dir: 'backend-web-application/resourcetechnologymapping'
+  #dir: 'backend-web-application/resourcetechnologymapping'
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '.']
-  dir: 'backend-web-application/resourcetechnologymapping'
+  #dir: 'backend-web-application/resourcetechnologymapping'
  
 
 images:
