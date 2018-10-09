@@ -19,6 +19,6 @@ steps:
   args: ['install']
   dir: '/resourcetechnologymapping'
 - name: 'asia.gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
+  args: ['build', '--tag=asia.gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
   #args: ['build', '.']
  dir: '/resourcetechnologymapping'
