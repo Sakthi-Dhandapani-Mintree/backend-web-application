@@ -5,9 +5,4 @@ steps:
   args: ['up', '-d']
   env:
   - 'PROJECT_ID=$PROJECT_ID'
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'test:integration']
-  env:
-  - 'HOST=counter' # name of the running container
-  - 'PORT=50051'
 images: ['gcr.io/$PROJECT_ID/gcb-docker-compose:latest']
