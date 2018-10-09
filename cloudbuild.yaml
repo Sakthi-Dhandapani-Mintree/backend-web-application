@@ -7,7 +7,7 @@ steps:
 # Build the java / maven matrix.
 - name: 'gcr.io/cloud-builders/docker'
   args:
-   - cd /resourcetechnologymapping
+   - cd /resourcetechnologymapping/
   - 'build'
   - '--build-arg=BASE_IMAGE=gcr.io/$PROJECT_ID/javac:8'
   - '--build-arg=MAVEN_VERSION=3.3.9'
