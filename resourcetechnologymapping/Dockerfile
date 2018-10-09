@@ -1,3 +1,3 @@
 FROM openjdk:8-jdk
-ADD target/spring-boot-example-0.1.0.jar spring-boot-example-0.1.0.jar
-CMD ["java", "-jar", "spring-boot-example-0.1.0.jar"]
+ADD target/resourcetechnologymapping-0.1.0.war resourcetechnologymapping-0.1.0.war
+CMD ["java", "-war", "resourcetechnologymapping-0.1.0.jar"]
