@@ -1,12 +1,39 @@
+# Decrypt the file containing the key
 steps:
-# Pull the latest gcloud image.
-- name: 'gcr.io/backend-web-application/docker'
-  args: ['pull', 'gcr.io/backend-web-application/resourcetechnologymapping']
-- name: 'gcr.io/backend-web-application/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - kms
+  - decrypt
+  - --ciphertext-file=id_rsa.enc
+  - --plaintext-file=/root/.ssh/id_rsa
+  - --location=global
+  - --keyring=my-keyring
+  - --key=github-key
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
 
-# Clone a public repo and write its revision to a VERSION file.
-- name: 'gcr.io/$PROJECT_ID/resourcetechnologymapping'
-  args: ['clone', 'https://github.com:Sakthi-Dhandapani-Mintree/backend-web-application.git']
-  #dir:  './resourcetechnologymapping'
-images: ['gcr.io/$PROJECT_ID/resourcetechnologymapping']
+# Set up git with key and domain.
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    chmod 600 /root/.ssh/id_rsa
+    cat <<EOF >/root/.ssh/config
+    Hostname github.com
+    IdentityFile /root/.ssh/id_rsa
+    EOF
+    mv known_hosts /root/.ssh/known_hosts
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+# Use git clone.
+- name: 'gcr.io/cloud-builders/git'
+  args:
+  - clone
+  - git@github.com:sakthi.dhandapani@mindtree.com/backend-web-application
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
