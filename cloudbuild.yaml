@@ -1,10 +1,12 @@
 steps:
-- name: 'gcr.io/cloud-builders/mvn'
-  args: ['install']
-  dir: 'backend-web-application/resourcetechnologymapping'
-- name: 'gcr.io/cloud-builders/mvn'
-  args: ['package']
+# Pull the latest gcloud image.
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=asia.gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
-  #args: ['build', '.']
- dir: 'backend-web-application/resourcetechnologymapping'
+  args: ['pull', 'gcr.io/cloud-builders/gcloud']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
+
+# Clone a public repo and write its revision to a VERSION file.
+- name: 'gcr.io/$PROJECT_ID/git'
+  args: ['clone', 'https://github.com/GoogleCloudPlatform/cloud-builders.git']
+  dir: 'backend-web-application/resourcetechnologymapping'
+images: ['gcr.io/$PROJECT_ID/resourcetechnologymapping']
