@@ -1,13 +1,14 @@
 steps:
-# Pull the latest gcloud image.
-- name: 'gcr.io/mindtree-gcp-project-135/docker'
-  args: ['pull', 'gcr.io/mindtree-gcp-project-135/resourcetechnologymapping']
-- name: 'gcr.io/mindtree-gcp-project-135/docker'
-  #args: ['build', '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
-  args: ['build', '.']
-
-# Clone a public repo and write its revision to a VERSION file.
-- name: 'gcr.io/$PROJECT_ID/resourcetechnologymapping'
-  args: ['clone', 'git@github.com:Sakthi-Dhandapani-Mintree/backend-web-application.git']
-  #dir:  './resourcetechnologymapping'
-images: ['gcr.io/$PROJECT_ID/resourcetechnologymapping']
+- name: "gcr.io/cloud-builders/go"
+	env: ["PROJECT_ROOT=resourcetechnologymapping"]
+	args: ["install","."]
+	id: "go-install"
+	
+- name: "gcr.iocloud-builders/go"
+	env: ["PROJECT_ROOT=resourcetechnologymapping"]
+	args: ["test"]
+	id: "go-test"
+	
+- name: "gcr.io/cloud-builders/docker"
+	args: ["build", "-t","gcr.io/${PROJECT_ID}/resourcetechnologymapping:v1.0.0", "."]
+	images: ["gcr.io/${PROJECT_ID}/resourcetechnologymapping:v1.0.0"]
