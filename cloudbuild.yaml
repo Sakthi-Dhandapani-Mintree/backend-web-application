@@ -2,7 +2,13 @@
 # $ gcloud builds submit . --config=cloudbuild.yaml
 #
 # TODO(franklinn): Stop tagging java/mvn images once usage has dropped off.
-
+modelVersion: 4.0.0
+parent: {artifactId: tesla, groupId: io.tesla, relativePath: ../pom.xml, version: '4'}
+groupId: io.tesla.polyglot
+artifactId: tesla-polyglot
+version: 0.0.1-SNAPSHOT
+packaging: pom
+name: 'Polyglot Tesla :: Aggregator'
 steps:
 # Build the java / maven matrix.
 - name: 'gcr.io/cloud-builders/docker'
