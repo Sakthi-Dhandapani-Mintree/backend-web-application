@@ -1,36 +1,10 @@
-# In this directory, run the following command to build this builder.
-# $ gcloud builds submit . --config=cloudbuild.yaml
-#
-# TODO(franklinn): Stop tagging java/mvn images once usage has dropped off.
-modelVersion: 4.0.0
-parent: {artifactId: tesla, groupId: io.tesla, relativePath: ../pom.xml, version: '4'}
-groupId: io.tesla.polyglot
-artifactId: tesla-polyglot
-version: 0.0.1-SNAPSHOT
-packaging: pom
-name: 'Polyglot Tesla :: Aggregator'
 steps:
-# Build the java / maven matrix.
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-   - cd /resourcetechnologymapping/
-  - 'build'
-  - '--build-arg=BASE_IMAGE=gcr.io/$PROJECT_ID/javac:8'
-  - '--build-arg=MAVEN_VERSION=3.3.9'
-  - '--build-arg=SHA=6e3e9c949ab4695a204f74038717aa7b2689b1be94875899ac1b3fe42800ff82'
-  - '--tag=gcr.io/$PROJECT_ID/mvn:3.3.9-jdk-8'
-  - '--tag=gcr.io/$PROJECT_ID/java/mvn:3.3.9-jdk-8'
-  - '.'
-  wait_for: ['-']
- # Tag a default builder version.
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-  - 'tag'
-  - 'gcr.io/$PROJECT_ID/mvn:3.5.0-jdk-8'
-  - 'gcr.io/$PROJECT_ID/java/mvn'
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-  - 'tag'
-  - 'gcr.io/$PROJECT_ID/mvn:3.5.0-jdk-8'
-  - 'gcr.io/$PROJECT_ID/mvn'
- 
+- name: 'asia.gcr.io/cloud-builders/mvn'
+  args: ['install']
+  dir: '/resourcetechnologymapping'
+- name: 'asia.gcr.io/cloud-builders/mvn'
+  args: ['package']
+- name: 'asia.gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=asia.gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
+  #args: ['build', '.']
+ dir: '/resourcetechnologymapping'
