@@ -3,7 +3,8 @@ steps:
 - name: 'gcr.io/mindtree-gcp-project-135/docker'
   args: ['pull', 'gcr.io/mindtree-gcp-project-135/resourcetechnologymapping']
 - name: 'gcr.io/mindtree-gcp-project-135/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
+  #args: ['build', '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
+  args: ['build', '.']
 
 # Clone a public repo and write its revision to a VERSION file.
 - name: 'gcr.io/$PROJECT_ID/resourcetechnologymapping'
