@@ -7,12 +7,13 @@ steps:
 # Build the java / maven matrix.
 - name: 'gcr.io/cloud-builders/docker'
   args:
+   - cd resourcetechnologymapping
   - 'build'
   - '--build-arg=BASE_IMAGE=gcr.io/$PROJECT_ID/javac:8'
   - '--build-arg=MAVEN_VERSION=3.3.9'
   - '--build-arg=SHA=6e3e9c949ab4695a204f74038717aa7b2689b1be94875899ac1b3fe42800ff82'
-  - '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping/mvn:3.3.9-jdk-8'
-  - '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping/java/mvn:3.3.9-jdk-8'
+  - '--tag=gcr.io/$PROJECT_ID/mvn:3.3.9-jdk-8'
+  - '--tag=gcr.io/$PROJECT_ID/java/mvn:3.3.9-jdk-8'
   - '.'
   wait_for: ['-']
  # Tag a default builder version.
@@ -26,26 +27,4 @@ steps:
   - 'tag'
   - 'gcr.io/$PROJECT_ID/mvn:3.5.0-jdk-8'
   - 'gcr.io/$PROJECT_ID/mvn'
-
-# run examples
-- name: 'gcr.io/$PROJECT_ID/mvn:3.3.9-jdk-8'
-  args: ['install']
-  dir: 'resourcetechnologymapping'
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '.']
-  dir: 'resourcetechnologymapping'
-
-- name: 'gcr.io/$PROJECT_ID/mvn:3.5.0-jdk-8'
-  args: ['install']
-  dir: 'resourcetechnologymapping'
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '.']
-  dir: 'resourcetechnologymapping'
-
-images:
-- 'gcr.io/$PROJECT_ID/mvn:3.5.0-jdk-8'
-- 'gcr.io/$PROJECT_ID/mvn:3.3.9-jdk-8'
-- 'gcr.io/$PROJECT_ID/mvn'
-- 'gcr.io/$PROJECT_ID/java/mvn:3.5.0-jdk-8'
-- 'gcr.io/$PROJECT_ID/java/mvn:3.3.9-jdk-8'
-- 'gcr.io/$PROJECT_ID/java/mvn'
+ 
