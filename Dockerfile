@@ -18,4 +18,4 @@ RUN apt-get update -qqy && apt-get install -qqy curl \
   && rm /var/lib/apt/lists/*_*
 
 ENV M2_HOME /usr/share/maven
-ENTRYPOINT ["resourcetechnologymapping"]
+ENTRYPOINT ["backend-web-application"]
