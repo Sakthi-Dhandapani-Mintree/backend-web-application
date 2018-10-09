@@ -1,10 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/mvn'
   args: ['install']
-  #dir: '/resourcetechnologymapping'
+  dir: 'backend-web-application/resourcetechnologymapping'
 - name: 'gcr.io/cloud-builders/mvn'
   args: ['package']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '--tag=asia.gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
   #args: ['build', '.']
-# dir: '/resourcetechnologymapping'
+ dir: 'backend-web-application/resourcetechnologymapping'
