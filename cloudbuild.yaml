@@ -15,10 +15,10 @@ steps:
 #images: ['gcr.io/$PROJECT_ID/git']
 
 steps:
-- name: 'gcr.io/cloud-builders/mvn'
+- name: 'asia.gcr.io/cloud-builders/mvn'
   args: ['install']
   dir: '/resourcetechnologymapping'
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'asia.gcr.io/cloud-builders/docker'
   args: ['build', '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
   #args: ['build', '.']
  dir: '/resourcetechnologymapping'
