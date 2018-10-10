@@ -7,4 +7,4 @@ artifacts:
   objects:
     location: 'gs://mindtreegcp/'
     paths:
-   - "${_TARGET}"
+  - "${_TARGET}"
