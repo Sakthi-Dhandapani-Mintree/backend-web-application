@@ -30,7 +30,7 @@ public class ResourceBeanController {
 	private ResourceBeanService resourceService;
 	
 	/**
-	 * This method used insert the resource into Database
+	 * This method used insert the resource into Database it wont save into database 
 	 */
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	public String hello(@RequestBody String resource) {
