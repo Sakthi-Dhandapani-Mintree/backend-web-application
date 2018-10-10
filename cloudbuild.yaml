@@ -1,8 +1,8 @@
 steps:
-- name: 'asia.gcr.io/cloud-builders/mvn'
+- name: 'gcr.io/cloud-builders/mvn'
   args: ['install']
-- name: 'asia.gcr.io/cloud-builders/mvn'
+- name: 'gcr.io/cloud-builders/mvn'
   args: ['test']
-- name: "asia.gcr.io/cloud-builders/mvn"
+- name: "gcr.io/cloud-builders/mvn"
   args: ["build", "-t", "asia.gcr.io/$PROJECT_ID/my-image:$REVISION_ID", "."]
 timeout: "1600s"
