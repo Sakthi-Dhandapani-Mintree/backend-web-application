@@ -5,5 +5,5 @@ steps:
 - name: 'gcr.io/cloud-builders/mvn'
   args: ['build', '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
   dir: 'resourcetechnologymapping'
-images: ['gcr.io/$PROJECT_ID/resourcetechnologymapping']
+#images: ['gcr.io/$PROJECT_ID/resourcetechnologymapping']
  timeout: "1600s"
