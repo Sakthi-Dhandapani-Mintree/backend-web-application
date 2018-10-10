@@ -2,8 +2,11 @@ steps:
 - name: 'gcr.io/cloud-builders/mvn'
   args: ['install']
   dir: 'resourcetechnologymapping'
+   
 - name: 'gcr.io/cloud-builders/mvn'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/resourcetechnologymapping', '.']
+  args: ['package']
   dir: 'resourcetechnologymapping'
-#images: ['gcr.io/$PROJECT_ID/resourcetechnologymapping']
- timeout: "1600s"
+- name: "gcr.io/cloud-builders/mvn"
+  args: ["build", "."]
+  dir: 'resourcetechnologymapping'
+timeout: "1600s"
