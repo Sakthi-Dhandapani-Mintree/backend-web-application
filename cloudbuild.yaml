@@ -6,4 +6,5 @@ steps:
 artifacts:
   objects:
     location: 'gs://mindtreegcp/'
-    paths: ['/workspace/resourcetechnologymapping/target/']
+    paths:
+   - "${_TARGET}"
