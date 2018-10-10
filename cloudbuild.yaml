@@ -4,5 +4,5 @@ steps:
 #- name: 'gcr.io/cloud-builders/mvn'
 #  args: ['package']
 - name: "gcr.io/cloud-builders/mvn"
-  args: ["build", "."]
+  args: ["build", "./resourcetechnologymapping"]
 timeout: "1600s"
