@@ -6,5 +6,7 @@ steps:
 artifacts:
   objects:
     location: "gs://${_BUCKET}/"
-    #paths:
-    #- "target/${_TARGET}"
+    paths:
+    - "/workspace/resourcetechnologymapping/target/${_TARGET}"
+    
+    #/workspace/resourcetechnologymapping
