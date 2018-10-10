@@ -4,6 +4,6 @@ steps:
   - package
   dir: 'resourcetechnologymapping'
 artifacts:
-  objects:
-    location: 'gs://mindtreegcp/'
-    paths: ['resourcemapping.war'] 
+  objects:
+    location: 'gs://mindtreegcp/'
+    paths: ['resourcemapping.war']
