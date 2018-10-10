@@ -117,17 +117,17 @@
 
 	<build>
 		<finalName>resourcetechnologymapping</finalName>
-		<plugins>
-            <plugin>
-  		<artifactId>maven-war-plugin</artifactId>
- 		 <version>3.0.0</version>
-		</plugin>
-			<plugin>
-   <groupId>com.google.appengine</groupId>
-   <artifactId>appengine-maven-plugin</artifactId>
-   <version>1.9.66</version>
-</plugin>
-        </plugins>
+		 <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <!-- maven.war.filteringDeploymentDescriptors removed in 3.0 (MWAR-376) -->
+          <filteringDeploymentDescriptors>${maven.war.filteringDeploymentDescriptors}</filteringDeploymentDescriptors> 
+        </configuration>
+      </plugin>
+    </plugins>
 
 	</build>
 
