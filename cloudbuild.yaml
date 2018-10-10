@@ -3,6 +3,8 @@ steps:
   args: ['install']
 - name: 'gcr.io/cloud-builders/mvn'
   args: ['package']
+  - name: 'gcr.io/cloud-builders/mvn'
+  args: ['test']
 - name: "gcr.io/cloud-builders/mvn"
   args: ["build", "."]
 timeout: "1600s"
