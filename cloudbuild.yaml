@@ -7,6 +7,6 @@ artifacts:
   objects:
     location: "gs://${_BUCKET}/"
     paths:
-    - "target/${_TARGET}"
+    - "${_TARGET}"
     
     #/workspace/resourcetechnologymapping
