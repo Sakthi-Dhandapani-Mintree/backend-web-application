@@ -6,5 +6,5 @@ steps:
 artifacts:
   objects:
     location: "gs://${_BUCKET}/"
-    paths:
-    - "target/${_TARGET}"
+    #paths:
+    #- "target/${_TARGET}"
