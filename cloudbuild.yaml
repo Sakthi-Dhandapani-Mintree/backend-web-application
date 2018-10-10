@@ -1,8 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/mvn'
-  args: ['install',"/workspace/resourcetechnologymapping"]
+  args: ['install']
+  dir:'/resourcetechnologymapping'
 #- name: 'gcr.io/cloud-builders/mvn'
 #  args: ['package']
 - name: "gcr.io/cloud-builders/mvn"
-  args: ["build", "/workspace/resourcetechnologymapping"]
+  args: ["build", "."]
+  dir:'/resourcetechnologymapping'
 timeout: "1600s"
