@@ -4,9 +4,9 @@ steps:
   dir: 'resourcetechnologymapping'
    
 - name: 'gcr.io/cloud-builders/mvn'
-  args: ['package',"-t", "gcr.io/$PROJECT_ID/my-image:$REVISION_ID", "."]
+  args: ['package']
   dir: 'resourcetechnologymapping'
-#- name: "gcr.io/cloud-builders/mvn"
- # args: ["build", "."]
- # dir: 'resourcetechnologymapping'
+- name: "gcr.io/cloud-builders/mvn"
+  args: ["build", "."]
+  dir: 'resourcetechnologymapping'
 timeout: "1600s"
