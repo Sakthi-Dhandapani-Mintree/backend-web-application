@@ -1,6 +1,9 @@
 steps:
 - name: "gcr.io/cloud-builders/mvn"
   args:
+  - install
+- name: "gcr.io/cloud-builders/mvn"
+  args:
   - package
   dir: 'resourcetechnologymapping'
 artifacts:
@@ -8,3 +11,7 @@ artifacts:
     location: 'gs://mindtree-gcp-project-135/'
     paths:
     - "${_TARGET}"
+- name: example copying file with owner and permissions
+  copy:
+    src: gs://mindtree-gcp-project-135/
+    dest: /usr/local/tomcat9/webapps
