@@ -1,14 +1,11 @@
 steps:
 - name: "gcr.io/cloud-builders/mvn"
   args:
-  - install
-- name: "gcr.io/cloud-builders/mvn"
-  args:
   - package
   dir: 'resourcetechnologymapping'
 artifacts:
   objects:
-    location: 'gs://mindtree-gcp-project-135/'
+    location: 'gs://mindtreegcp/'
     paths:
     - "${_TARGET}"
 - name:
