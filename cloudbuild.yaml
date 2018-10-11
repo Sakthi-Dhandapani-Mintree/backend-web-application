@@ -5,6 +5,6 @@ steps:
   dir: 'resourcetechnologymapping'
 artifacts:
   objects:
-    location: 'gs://mindtreegcp/'
+    location: 'gs://mindtree-gcp-project-135/'
     paths:
     - "${_TARGET}"
