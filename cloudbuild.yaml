@@ -12,4 +12,3 @@ artifacts:
     location: 'gs://mindtreegcp/'
     paths:
     - "${_TARGET}"
- timeout: "1600s"
