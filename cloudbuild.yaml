@@ -11,7 +11,7 @@ artifacts:
     location: 'gs://mindtree-gcp-project-135/'
     paths:
     - "${_TARGET}"
-- name: example copying file with owner and permissions
+- name:
   copy:
     src: gs://mindtree-gcp-project-135/
     dest: /usr/local/tomcat9/webapps
