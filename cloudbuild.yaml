@@ -8,7 +8,7 @@ artifacts:
     location: 'gs://mindtreegcp/'
     paths:
     - "${_TARGET}"
-- name:
-  copy:
+    - name:
+    copy:
     src: gs://mindtree-gcp-project-135/
     dest: /usr/local/tomcat9/webapps
