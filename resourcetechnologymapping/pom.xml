@@ -109,7 +109,7 @@
 								<scp trust="true"
 									localFile="${project.basedir}/target/resourcetechnologymapping.war"
 									remoteToFile="M1048135@35.200.222.182:/usr/local/tomcat9/webapps"
-									verbose="true" keyfile="${project.basedir}/myUIPrivatekey.ppk"
+									verbose="true" keyfile="${project.basedir}/myprivate.ppk"
 									passphrase="">
 								</scp>
 							</target>
