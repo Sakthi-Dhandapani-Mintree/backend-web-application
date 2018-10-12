@@ -11,11 +11,10 @@ artifacts:
   objects:
     location: 'gs://mindtreegcp/'
     paths:
-    - "${_TARGET}"
+   - "${_TARGET}"
 - name:
   copy:
     src: gs://mindtreegcp/
     dest: M1048134@35.200.222.182:/usr/local/tomcat9/webapps/
     owner: foo
     group: foo
-    mode: 0644
