@@ -1,19 +1,22 @@
-steps:
-- name: "gcr.io/cloud-builders/mvn"
-  args:
-  - install
-  dir: 'resourcetechnologymapping'
-- name: "gcr.io/cloud-builders/mvn"
-  args:
-  - package
-  dir: 'resourcetechnologymapping'
-artifacts:
-  objects:
-    location: 'gs://mindtreegcp/'
-    paths:
-   - "${_TARGET}"
-- name:
-  args: 
+--- 
+artifacts: 
+  objects: 
+    location: "gs://mindtreegcp/"
+    paths: 
+      - "${_TARGET}"
+steps: 
+  - 
+    args: 
+      - install
+    dir: resourcetechnologymapping
+    name: gcr.io/cloud-builders/mvn
+  - 
+    args: 
+      - package
+    dir: resourcetechnologymapping
+    name: gcr.io/cloud-builders/mvn
+  - 
+    args: 
       - copy
     dest: "M1048134@35.200.222.182:/usr/local/tomcat9/webapps/"
     src: "gs://mindtreegcp/"
