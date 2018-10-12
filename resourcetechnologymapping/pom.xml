@@ -16,11 +16,7 @@
 		<mysql.connector.version>5.1.9</mysql.connector.version>
 		 <maven.compiler.source>1.8</maven.compiler.source>
   		<maven.compiler.target>1.8</maven.compiler.target>
-<!-- 		<INSTANCE_CONNECTION_NAME>ResouceTechnologyMapping:asia-south1-a:cloudpractice-0</INSTANCE_CONNECTION_NAME> -->
-<!-- 		<user>root</user> -->
-<!-- 		<password>star123</password> -->
-<!-- 		<database>RTM</database> -->
-	</properties>
+ 	</properties>
 
 	<dependencies>
 		<!-- Junit jar default -->
@@ -46,7 +42,6 @@
 			<artifactId>spring-beans</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
@@ -68,6 +63,99 @@
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<!-- MySQL database driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector.version}</version>
+		</dependency>
+		<!-- jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- Log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<!-- Jackson -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-xc</artifactId>
+			<version>1.9.11</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.cloud.sql</groupId>
+			<artifactId>jdbc-socket-factory-core</artifactId>
+			<version>1.0.8</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>resourcetechnologymapping</finalName>
+		 <plugins>
+			<!-- .... other plugins ... -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<id>scp-to-remote</id>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<scp trust="true"
+									localFile="${project.basedir}/target/resourcetechnologymapping.war"
+									remoteToFile="M1048135@35.200.222.182:/usr/local/tomcat9/webapps"
+									verbose="true" keyfile="D:\OpenSource\myUIPrivatekey.ppk"
+									passphrase="">
+								</scp>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+				<!-- libraries for scp impl -->
+				<dependencies>
+					<dependency>
+						<groupId>com.jcraft</groupId>
+						<artifactId>jsch</artifactId>
+						<version>0.1.53</version>
+					</dependency>
+					<dependency>
+						<groupId>ant</groupId>
+						<artifactId>ant-jsch</artifactId>
+						<version>1.6.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<!-- Tomcat server plugin to stop and start -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat9-maven-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+		</plugins>
+	</build>
+	</build>
+</project>
 
 		<!-- MySQL database driver -->
 		<dependency>
@@ -117,18 +205,53 @@
 
 	<build>
 		<finalName>resourcetechnologymapping</finalName>
-		  <plugins>
+		 <plugins>
+			<!-- .... other plugins ... -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<id>scp-to-remote</id>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<scp trust="true"
+									localFile="${project.basedir}/target/resourcetechnologymapping.war"
+									remoteToFile="M1048135@35.200.222.182:/usr/local/tomcat9/webapps"
+									verbose="true" keyfile="D:\OpenSource\myUIPrivatekey.ppk"
+									passphrase="">
+								</scp>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+				<!-- libraries for scp impl -->
+				<dependencies>
+					<dependency>
+						<groupId>com.jcraft</groupId>
+						<artifactId>jsch</artifactId>
+						<version>0.1.53</version>
+					</dependency>
+					<dependency>
+						<groupId>ant</groupId>
+						<artifactId>ant-jsch</artifactId>
+						<version>1.6.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<!-- Tomcat server plugin to stop and start -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
+				<artifactId>tomcat9-maven-plugin</artifactId>
 				<version>2.2</version>
-				<configuration>
-					<url>http://35.200.222.182:8080</url>
-					<server>TomcatServer</server> -->
-					<path>/resourcetechnologymapping</path>
-				</configuration>
 			</plugin>
 		</plugins>
+	</build>
 
 	</build>
 
