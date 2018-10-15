@@ -11,7 +11,6 @@ artifacts:
   objects:
    location: 'gs://mindtreegcp/'
    paths:
-    - "${_TARGET}"
-   copy:
-    src: gs://mindtreegcp/
-    dest: M1048134@35.200.222.182:/usr/local/tomcat9/webapps/
+   - "${_TARGET}"
+   - name: "gcr.io/cloud-builders/gcloud"
+    args: [ 'compute', 'instances', 'create', 'front-end-instance-cb', '--create-disk=[image=gcp-backend-image,image-family=gcp-backend-image]', '--machine-type=n1-standard-1', '--metadata=[startup-script-url=gs://mindtree-gcp-project-135/startup-cloudbuild-script.sh'] 
