@@ -12,5 +12,3 @@ steps:
 artifacts:
   objects:
    location: 'gs://m1048135/'
-   paths:
-   - "${_TARGET}"
