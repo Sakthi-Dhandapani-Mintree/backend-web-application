@@ -32,7 +32,7 @@ public class ResourceBeanController {
 	/**
 	 * This method used insert the resource into Database it wont save into database 
 	 */
-	@RequestMapping(value = "/helloo", method = RequestMethod.GET)
+	@RequestMapping(value = "/hellotwo", method = RequestMethod.GET)
 	public String hello() {
 		System.out.println("Hello My method is called");
 		return "My hello Method called";
