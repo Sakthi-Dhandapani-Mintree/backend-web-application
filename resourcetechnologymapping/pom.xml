@@ -92,7 +92,7 @@
 	<build>
 		<finalName>resourcetechnologymapping</finalName>
 		<plugins>
-			<!-- Tomcat server plugin to stop and start -->
+		<!-- Tomcat server plugin to stop and start -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat9-maven-plugin</artifactId>
