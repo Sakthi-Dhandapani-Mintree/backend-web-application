@@ -8,7 +8,7 @@ steps:
   - package
   dir: 'resourcetechnologymapping'
 - name: "gcr.io/cloud-builders/gcloud"  
-  args: [ 'compute', 'instances', 'create', 'backend-web-app-instance-dummy-cb', '--image=backend-web-app-instance','--machine-type=n1-standard-1','--zone=asia-south1-c','--metadata=shoutdowntomcat-script-url=gs://m1048135/shoutdowntomcat-script.sh,startup-script-url=gs://m1048135/startup-cloudbuild-script.sh,start-tomcat-script-url=gs://m1048135/start-tomcat-script.sh']
+  args: [ 'compute', 'instances', 'create', 'backend-web-app-instance-dummy-cb', '--image=backend-web-app-instance','--machine-type=n1-standard-1','--zone=asia-south1-c','--allow tcp:8080','--metadata=startup-script-url=gs://m1048135/startup-cloudbuild-script.sh']
 artifacts:
   objects:
    location: 'gs://m1048135/'
