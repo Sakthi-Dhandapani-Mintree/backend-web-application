@@ -10,7 +10,7 @@ steps:
 - name: "gcr.io/cloud-builders/gcloud"  
   args: ['compute', 'instances', 'create', 'backend-web-app-instance-dummy-cb', '--image=backend-web-app-com-eng','--machine-type=n1-standard-1','--zone=asia-south1-c','--metadata=startup-script-url=gs://m1048135/startup-cloudbuild-script.sh']
 - name: "gcr.io/cloud-builders/gcloud"  
-  args: ['compute', 'firewall-rules', 'create', 'default-allow-http-8080','--action=ALLOW','--rules=tcp:8080']
+  args: ['compute', 'firewall-rules', 'create', 'default-allow-http-8080','--action=ALLOW','--rules=tcp:80','--rules=tcp:443']
 artifacts:
   objects:
    location: 'gs://m1048135/'
