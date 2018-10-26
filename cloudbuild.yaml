@@ -8,7 +8,7 @@ steps:
   - package
   dir: 'resourcetechnologymapping'
 - name: "gcr.io/cloud-builders/gcloud"  
-  args: [ 'compute', 'instances', 'create', 'backend-web-app-instance-dummy-cb', '--image=backend-web-app-com-eng','--machine-type=n1-standard-1','--zone=asia-south1-c','--tags http-server','--metadata=startup-script-url=gs://m1048135/startup-cloudbuild-script.sh']
+  args: ["'compute', 'instances', 'create', 'backend-web-app-instance-dummy-cb', '--image=backend-web-app-com-eng','--machine-type=n1-standard-1','--zone=asia-south1-c','--metadata=startup-script-url=gs://m1048135/startup-cloudbuild-script.sh'","gcloud compute firewall-rules create default-allow-http-8080 --allow tcp:8080 --source-ranges 0.0.0.0/0 --target-tags http-server --description "Allow port 8080 access to http-server""]
 artifacts:
   objects:
    location: 'gs://m1048135/'
