@@ -11,6 +11,6 @@ steps:
   args: ['compute', 'instances', 'create', 'backend-web-app-instance-dummy-cb', '--image=backend-web-app-com-eng','--machine-type=n1-standard-1','--zone=asia-south1-c','--metadata=startup-script-url=gs://m1048135/startup-cloudbuild-script.sh']
 artifacts:
   objects:
-   location: 'gs://m1048135/'
+   location: 'gs://net-mind/'
    paths:
    - "${_TARGET}"
