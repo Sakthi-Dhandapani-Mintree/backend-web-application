@@ -8,7 +8,7 @@ steps:
   - package
   dir: 'resourcetechnologymapping'
 - name: "gcr.io/cloud-builders/gcloud"  
-  args: ['compute', 'instances', 'create', 'backend-web-app-instance-dummy-cb', '--image=backend-web-app-com-eng','--machine-type=n1-standard-1','--zone=asia-south1-c','--network=demo-vpc','--metadata=startup-script-url=gs://m1048135/startup-cloudbuild-script.sh']
+  args: ['compute', 'instances', 'create', 'backend-web-app-instance-dummy-cb', '--image=backend-web-app-com-eng','--machine-type=n1-standard-1','--zone=asia-south1-c','--subnet-mode=demo-vpc','--metadata=startup-script-url=gs://m1048135/startup-cloudbuild-script.sh']
 artifacts:
   objects:
    location: 'gs://net-mind/'
